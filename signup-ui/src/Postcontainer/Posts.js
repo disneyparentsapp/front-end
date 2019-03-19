@@ -9,7 +9,7 @@ const Posts = (props) => {
             <p>{` Username: ${props.posts.name}`}</p>
             <p>{` Location: ${props.posts.location}`}</p>
             <p>{` Number of kids: ${props.posts.kids}`}</p>
-            <p>{` Time: ${props.posts.time}`}</p>
+            <p>{` Time: ${props.posts.timestamp}`}</p>
 
 
         </div>
