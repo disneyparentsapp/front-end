@@ -29,6 +29,8 @@ class Register extends React.Component {
     render() {
         return(
             <div>
+
+                
                 <p>Register</p>
 
                 <p>Username:</p>
