@@ -13,14 +13,14 @@ const authenticate = App => (Login) =>
             }
         }
 
-        componentDidMount(){
-            if(localStorage.getItem('user')){
-                this.setState({
-                    loggedin: true
-                })
-            } else {this.setState({loggedin:false})
-            }
-        }
+        // componentDidMount(){
+        //     if(localStorage.getItem('user')){
+        //         this.setState({
+        //             loggedin: true
+        //         })
+        //     } else {this.setState({loggedin:false})
+        //     }
+        // }
 
         render() {
 
@@ -28,7 +28,7 @@ const authenticate = App => (Login) =>
                 return(
                     <div>
 
-                <Route path='/register' render={ props => (
+                <Route path='/' render={ props => (
                     <Register {...props} />
                 ) } />
 

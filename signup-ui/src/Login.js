@@ -1,5 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+import { Link, Route } from 'react-router-dom'
+import Loggedin from './Loggedin'
+
+
 
 class Login extends React.Component {
     state = {
@@ -29,6 +33,15 @@ class Login extends React.Component {
     render() {
         return(
             <div>
+
+                
+      <div className="signin">
+      <Link to='/login' >SIGN IN</Link><p> or </p><Link to='/' >REGISTER</Link>
+      </div>
+
+      
+      <h1>Disney Parents</h1>
+
                 <p>Login</p>
 
                 <p>Username:</p>
@@ -47,6 +60,8 @@ class Login extends React.Component {
                 name="password"
                 />
                 <button onClick={this.signIn}> Sign in </button>
+
+                
 
             </div>
         )
