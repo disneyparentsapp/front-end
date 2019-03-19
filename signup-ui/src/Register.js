@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class Register extends React.Component {
     state = {
@@ -19,7 +20,7 @@ class Register extends React.Component {
         .then(res => {
             console.log(res.data);
             localStorage.setItem('jwt', res.data.token);
-            // this.props.history.push('/login')
+            this.props.history.push('/login')
         })
         .catch(err => {
             console.log("REGISTER ERROR")
@@ -28,9 +29,17 @@ class Register extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className='formcontainer'>
 
-                
+                {/* <Link to='/login' >SIGN IN</Link><Link to='/' >REGISTER</Link> */}
+            
+      <div className="signin">
+      <Link to='/login' >SIGN IN</Link><p> or </p><Link to='/' >REGISTER</Link>
+      </div>
+
+      
+      <h1>Disney Parents</h1>
+
                 <p>Register</p>
 
                 <p>Username:</p>

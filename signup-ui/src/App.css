@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  length: 3000px;
 }
 
 .App-logo {
@@ -30,4 +35,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.regcontainer {
+border: 1px solid grey;
+width: 350px;
+height: 400px;
+border-radius: 25px;
+}
+
+
+.signin {
+  display: flex;
+  width: 350px; 
+  justify-content: center;
+}
+
+.mickey {
+  display: flex;
+}
+
+.mickey img {
+  width: 350px;
+  height: 400px;
+  margin-right: 10px;
 }
