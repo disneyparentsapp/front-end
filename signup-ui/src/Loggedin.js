@@ -17,7 +17,16 @@ class Loggedin extends Component {
   }
 
   
-
+  deleteCard = (e, id) => {
+    e.preventDefault();
+    axios 
+    .delete(`https://disney-parents.herokuapp.com/posts/${id}`)
+    .then(res => {
+      console.log(res)
+      this.getItem()
+    })
+    .catch(err => err.data)
+  }
 
 
 
@@ -76,7 +85,7 @@ class Loggedin extends Component {
       > Create </button>
 
 
-      <PostContainer dummyData={this.props.postData}
+      <PostContainer deleteCard={this.deleteCard} dummyData={this.props.postData}
       postData={this.props.filteredPosts.length > 0 ? this.props.filteredPosts : this.props.postData}
       />
 
