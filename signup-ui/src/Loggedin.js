@@ -17,7 +17,7 @@ class Loggedin extends Component {
   }
 
   componentDidUpdate = () => {
-    
+
   }
   
   deleteCard = (e, id) => {
@@ -26,7 +26,7 @@ class Loggedin extends Component {
     .delete(`https://disney-parents.herokuapp.com/posts/${id}`)
     .then(res => {
       console.log(res)
-      this.getItem()
+      this.props.getItem()
     })
     .catch(err => err.data)
   }

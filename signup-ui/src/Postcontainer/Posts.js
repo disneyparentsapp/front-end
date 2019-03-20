@@ -44,6 +44,17 @@ class Posts extends React.Component {
      }}
 
 
+
+     deleteComment = (e, id) => {
+        e.preventDefault();
+        axios
+        .delete(`https://disney-parents.herokuapp.com/comments/${id}`)
+        .then(res => {console.log(res)})
+        .catch(err => err.data)
+    }
+
+
+
     render() {
 
         // const comments = this.state.singleComment.comments;
@@ -57,6 +68,7 @@ class Posts extends React.Component {
             <p>{` Number of kids: ${this.state.singleComment.kids}`}</p>
             <p>{` Time: ${this.state.singleComment.timestamp}`}</p>
             {this.commentLoop()}
+            {this.state.singleComment.comments ? <button onClick={e => this.deleteComment(e, this.state.singleComment.id)} >Delete Comment</button> : null}
             
 
         </div>

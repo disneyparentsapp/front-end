@@ -28,20 +28,7 @@ class App extends Component {
 
 
 
-    addComment = (e, item) => {
-      e.preventDefault();
-      axios
-        .post('https://disney-parents.herokuapp.com/posts', item)
-        .then(res => {
-          this.setState({
-            postData: res.data
-          });
-          // this.getItem()
-        })
-        .catch(err => {
-          console.log('COMMENT ERROR');
-        });
-    };    
+    
 
 
     
@@ -85,7 +72,7 @@ class App extends Component {
       
       <Switch><Route exact path="/" component={Register} exact/></Switch>
       <Switch><Route exact path="/login" component={Login} exact/></Switch>
-      <Route exact path="/home" component={props => <Loggedin {...props}   postData={this.state.postData} searchInput={this.state.searchInput} filteredPosts={this.state.filteredPosts}/>} exact/>
+      <Route exact path="/home" component={props => <Loggedin {...props}  getItem={this.getItem}  postData={this.state.postData} searchInput={this.state.searchInput} filteredPosts={this.state.filteredPosts}/>} exact/>
       <Route exact path="/form" render={props => (<AddCard {...props} addItem={this.addItem} />)} exact/>
       </div>
       
