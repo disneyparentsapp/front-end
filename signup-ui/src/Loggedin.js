@@ -16,8 +16,20 @@ class Loggedin extends Component {
     };
   }
 
-  
+  componentDidUpdate = () => {
 
+  }
+  
+  deleteCard = (e, id) => {
+    e.preventDefault();
+    axios 
+    .delete(`https://disney-parents.herokuapp.com/posts/${id}`)
+    .then(res => {
+      console.log(res)
+      this.props.getItem()
+    })
+    .catch(err => err.data)
+  }
 
 
 
@@ -45,24 +57,6 @@ class Loggedin extends Component {
 
 
 
-  // addItem = (e, item) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post('https://disney-parents.herokuapp.com/posts', item)
-  //     .then(res => {
-  //       this.setState({
-  //         postData: res.data
-  //       });
-        
-  //       this.props.history.push('/home');
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
-
-
-
   render() {
 
     return (
@@ -76,7 +70,7 @@ class Loggedin extends Component {
       > Create </button>
 
 
-      <PostContainer dummyData={this.props.postData}
+      <PostContainer deleteCard={this.deleteCard} dummyData={this.props.postData}
       postData={this.props.filteredPosts.length > 0 ? this.props.filteredPosts : this.props.postData}
       />
 

@@ -17,13 +17,22 @@ class App extends Component {
 
         postData: [],
         filteredPosts: [],
-        searchInput: ''
+        searchInput: '',
+        
       
     }};
 
     componentDidMount() {
       this.getItem()
     }
+
+
+
+    
+
+
+    
+
 
     addItem = (e, item) => {
       e.preventDefault();
@@ -43,7 +52,7 @@ class App extends Component {
   
     getItem = () => {
       axios
-      .get('https://disney-parents.herokuapp.com/posts', {headers: {authorization: localStorage.getItem('jwt')}})
+      .get(`https://disney-parents.herokuapp.com/posts/`, {headers: {authorization: localStorage.getItem('jwt')}})
       .then(res => {
           this.setState({
             postData: res.data
@@ -63,7 +72,7 @@ class App extends Component {
       
       <Switch><Route exact path="/" component={Register} exact/></Switch>
       <Switch><Route exact path="/login" component={Login} exact/></Switch>
-      <Route exact path="/home" component={props => <Loggedin {...props} postData={this.state.postData} searchInput={this.state.searchInput} filteredPosts={this.state.filteredPosts}/>} exact/>
+      <Route exact path="/home" component={props => <Loggedin {...props}  getItem={this.getItem}  postData={this.state.postData} searchInput={this.state.searchInput} filteredPosts={this.state.filteredPosts}/>} exact/>
       <Route exact path="/form" render={props => (<AddCard {...props} addItem={this.addItem} />)} exact/>
       </div>
       

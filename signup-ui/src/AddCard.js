@@ -16,9 +16,7 @@ class AddCard extends React.Component {
         }}
     }
 
-    changeHandler = event => {
-        this.setState({ [event.target.name]: event.target.value });
-      }
+    
 
     handleNameChanges = e => {
         e.preventDefault();      
@@ -45,10 +43,8 @@ class AddCard extends React.Component {
         this.setState({
           item: {
             name: '',
-            price: '',
-            imageUrl: '',
-            description: '',
-            shipping: ''
+            location: '',
+            kids: null
           }
         });
       };
