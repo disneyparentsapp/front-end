@@ -3,12 +3,17 @@ import axios from 'axios'
 
 class Posts extends React.Component {
     state={
-        singleComment: {}
+        singleComment: {},
+
     }
 
     componentDidMount() {
         this.getSinglePost(this.props.posts.id)
     }
+
+
+
+
 
     getSinglePost = (id) => {
         axios
@@ -29,6 +34,27 @@ class Posts extends React.Component {
   
       }  
 
+
+
+
+
+    //   addComment = (e) => {
+    //     e.preventDefault();
+    //     axios
+    //       .post('https://disney-parents.herokuapp.com/comments', this.state.commentItem)
+    //       .then(res => {
+    //         console.log(res)
+            
+    //       })
+    //       .catch(err => {
+    //         console.log(err);
+    //       });
+    //   };
+
+
+
+
+
      commentLoop = () => {
          
         //  console.log(this.state.singleComment.comments.constructor === Array)
@@ -38,20 +64,27 @@ class Posts extends React.Component {
             console.log(this.state.singleComment.comments.constructor === Array)
              console.log("adasd")
          return this.state.singleComment.comments.map(item => {
-            return (item.comment) 
-               
+            return(
+            
+            <div>
+            <p>{item.name}</p>
+            <p>{item.comment}</p>
+            <button onClick={e => this.deleteComment(e, item.id)} >Delete Comment</button>
+            </div>
+            )
          })
      }}
 
 
 
-     deleteComment = (e, id) => {
-        e.preventDefault();
-        axios
-        .delete(`https://disney-parents.herokuapp.com/comments/${id}`)
-        .then(res => {console.log(res)})
-        .catch(err => err.data)
-    }
+
+    //  deleteComment = (e, id) => {
+    //     e.preventDefault();
+    //     axios
+    //     .delete(`https://disney-parents.herokuapp.com/comments/${id}`)
+    //     .then(res => {console.log(res)})
+    //     .catch(err => err.data)
+    // }
 
 
 
@@ -68,7 +101,7 @@ class Posts extends React.Component {
             <p>{` Number of kids: ${this.state.singleComment.kids}`}</p>
             <p>{` Time: ${this.state.singleComment.timestamp}`}</p>
             {this.commentLoop()}
-            {this.state.singleComment.comments ? <button onClick={e => this.deleteComment(e, this.state.singleComment.id)} >Delete Comment</button> : null}
+            {/* {this.state.singleComment.comments ? <button onClick={e => this.deleteComment(e, this.state.singleComment.id)} >Delete Comment</button> : null} */}
             
 
         </div>

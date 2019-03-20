@@ -15,9 +15,9 @@ const PostContainer = (props) => {
                         <Posts posts={item} />
                         
                         <button onClick={e => props.deleteCard(e, item.id)}> Delete </button>
-                        <button> Edit </button>
+                        
 
-                        <CommentSection item={item}/>
+                        <CommentSection getItem={props.getItem} item={item}/>
                     </div>
                 )
             })}

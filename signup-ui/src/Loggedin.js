@@ -70,7 +70,7 @@ class Loggedin extends Component {
       > Create </button>
 
 
-      <PostContainer deleteCard={this.deleteCard} dummyData={this.props.postData}
+      <PostContainer getItem={this.props.getItem} deleteCard={this.deleteCard} dummyData={this.props.postData}
       postData={this.props.filteredPosts.length > 0 ? this.props.filteredPosts : this.props.postData}
       />
 
