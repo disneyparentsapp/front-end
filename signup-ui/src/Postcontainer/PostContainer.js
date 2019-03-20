@@ -5,6 +5,7 @@ import Posts from '../Postcontainer/Posts'
 const PostContainer = (props) => {
 
     
+    
 
     return (
         <div>
@@ -12,9 +13,11 @@ const PostContainer = (props) => {
                 return (
                     <div>
                         <Posts posts={item} />
-                        <CommentSection />
+                        
                         <button onClick={e => props.deleteCard(e, item.id)}> Delete </button>
                         <button> Edit </button>
+
+                        <CommentSection />
                     </div>
                 )
             })}

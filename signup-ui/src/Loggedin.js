@@ -16,6 +16,9 @@ class Loggedin extends Component {
     };
   }
 
+  componentDidUpdate = () => {
+    
+  }
   
   deleteCard = (e, id) => {
     e.preventDefault();
@@ -51,24 +54,6 @@ class Loggedin extends Component {
     e.preventDefault()
     {this.props.history.push('/form')}
   }
-
-
-
-  // addItem = (e, item) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post('https://disney-parents.herokuapp.com/posts', item)
-  //     .then(res => {
-  //       this.setState({
-  //         postData: res.data
-  //       });
-        
-  //       this.props.history.push('/home');
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
 
 
 
