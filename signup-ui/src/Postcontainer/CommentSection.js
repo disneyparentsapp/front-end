@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 
-
 class CommentSection extends React.Component {
     constructor(props) {
         super(props);
@@ -45,19 +44,14 @@ class CommentSection extends React.Component {
 //======================================================================
 
 
-      editComment = (e) => {
-        e.preventDefault();
-        const edits = {name: this.state.name ,comment: this.state.comment, post_id: this.state.post_id}
+    //   populateForm = (e, id) => {
+    //     e.preventDefault();
+    //     const edits = {name: this.state.name ,comment: this.state.comment, post_id: this.state.post_id}
 
-        axios 
-        .put('https://disney-parents.herokuapp.com/comments', edits)
-        .then( res => {
-            this.setState( { name: '' ,comment: '', post_id: this.state.post_id } )
-        })
-        .catch(err => {console.log("EDIT ERROR")})
+    //     this.setState({ this.state.items.find })
+    //   }
 
-      }
-
+    
 
     render() {
         
@@ -77,7 +71,7 @@ class CommentSection extends React.Component {
             name="comment"
             />
             
-            <button>Done</button> <button> Edit </button>
+            <button>Done</button> 
         </form>
     )
 }

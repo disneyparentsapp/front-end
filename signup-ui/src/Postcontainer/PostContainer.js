@@ -12,12 +12,12 @@ const PostContainer = (props) => {
             {props.postData.map((item) => {
                 return (
                     <div>
-                        <Posts posts={item} />
+                        <Posts getItem={props.getItem} posts={item} />
                         
                         <button onClick={e => props.deleteCard(e, item.id)}> Delete </button>
                         
 
-                        <CommentSection getItem={props.getItem} item={item}/>
+                        
                     </div>
                 )
             })}

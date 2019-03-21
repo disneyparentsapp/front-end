@@ -16,9 +16,7 @@ class Loggedin extends Component {
     };
   }
 
-  componentDidUpdate = () => {
 
-  }
   
   deleteCard = (e, id) => {
     e.preventDefault();
@@ -34,19 +32,19 @@ class Loggedin extends Component {
 
 
 
-  changeHandler = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
+  // changeHandler = event => {
+  //   this.setState({ [event.target.name]: event.target.value });
+  // }
 
 
 
-  searchHandler = e => {
-    this.changeHandler(e)
-    this.setState((prevState) => {
-      const filteredPostArray = prevState.postData.filter(post => post.location.includes(prevState.searchInput))
-      return {filteredPosts: filteredPostArray }
-    })
-  }
+  // searchHandler = e => {
+  //   this.changeHandler(e)
+  //   this.setState((prevState) => {
+  //     const filteredPostArray = prevState.postData.filter(post => post.location.includes(prevState.searchInput))
+  //     return {filteredPosts: filteredPostArray }
+  //   })
+  // }
 
 
 
@@ -63,7 +61,7 @@ class Loggedin extends Component {
   <div className="container">
         
         <Route exact path="/form" component={AddCard} exact/>
-      <SearchBar searchInput={this.props.searchInput} searchHandler={this.searchHandler}/>
+      <SearchBar searchInput={this.props.searchInput} searchHandler={this.props.searchHandler}/>
       
       <button
       onClick={this.forms}

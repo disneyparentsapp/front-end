@@ -1,9 +1,18 @@
 import React from 'react'
 import axios from 'axios'
+import CommentSection from './CommentSection'
 
 class Posts extends React.Component {
     state={
+
         singleComment: {},
+
+        commentItem: {
+            comment: '',
+            name: '',
+            post_id: this.props.posts.id },
+
+        isUpdating: false
 
     }
 
@@ -34,26 +43,42 @@ class Posts extends React.Component {
   
       }  
 
+//======================================================================
 
 
 
 
-    //   addComment = (e) => {
-    //     e.preventDefault();
-    //     axios
-    //       .post('https://disney-parents.herokuapp.com/comments', this.state.commentItem)
-    //       .then(res => {
-    //         console.log(res)
-            
-    //       })
-    //       .catch(err => {
-    //         console.log(err);
-    //       });
-    //   };
+      populateForm = (e, id) => {
+        e.preventDefault();
+        this.setState({
+          commentItem: this.state.singleComment.comments.find(commentItem => commentItem.id === id),
+          isUpdating: true
+        });
+        console.log(this.state.commentItem)
+      };
 
 
+      updateItem = () => {
+        axios
+        .put(`https://disney-parents.herokuapp.com/comments/${this.state.post_id}`, this.state.commentItem)
+        .then(res => {
+            this.setState({
+                singleComment: {comments: res.data},
+                commentItem: {
+                    comment: '',
+                    name: '',
+                    post_id: this.props.posts.id },
+                    isUpdating: false
+            })
+        })
+        .catch(err => console.log("UPDATE_ERROR"))
 
+      }
 
+      ChangeHandler = (e) => {
+      this.setState({[e.target.value]: e.target.name}) }
+
+//============================================================================
 
      commentLoop = () => {
          
@@ -62,7 +87,7 @@ class Posts extends React.Component {
         //  console.log(Object.keys(this.state.singleComment))
          if (this.state.singleComment.comments){
             console.log(this.state.singleComment.comments.constructor === Array)
-             console.log("adasd")
+             
          return this.state.singleComment.comments.map(item => {
             return(
             
@@ -70,6 +95,9 @@ class Posts extends React.Component {
             <p>{item.name}</p>
             <p>{item.comment}</p>
             <button onClick={e => this.deleteComment(e, item.id)} >Delete Comment</button>
+            <button onClick={e => this.populateForm(e, item.id)} >Edit Comment</button>
+            {this.state.isUpdating ? <button onClick={(e) => this.updateItem()} >UPDATE</button> : null}
+            {this.state.isUpdating ? <input name="commentItem" onChange={this.ChangeHandler} value={this.state.commentItem.comment}/> : null}
             </div>
             )
          })
@@ -78,20 +106,21 @@ class Posts extends React.Component {
 
 
 
-    //  deleteComment = (e, id) => {
-    //     e.preventDefault();
-    //     axios
-    //     .delete(`https://disney-parents.herokuapp.com/comments/${id}`)
-    //     .then(res => {console.log(res)})
-    //     .catch(err => err.data)
-    // }
+     deleteComment = (e, id) => {
+        e.preventDefault();
+        axios
+        .delete(`https://disney-parents.herokuapp.com/comments/${id}`)
+        .then(res => {console.log(res)
+                this.props.getItem()    })
+        .catch(err => err.data)
+    }
 
 
 
     render() {
 
-        // const comments = this.state.singleComment.comments;
-        
+        const comments = this.state.singleComment.comments;
+        console.log(comments)
 
     return (
         <div>
@@ -101,9 +130,9 @@ class Posts extends React.Component {
             <p>{` Number of kids: ${this.state.singleComment.kids}`}</p>
             <p>{` Time: ${this.state.singleComment.timestamp}`}</p>
             {this.commentLoop()}
-            {/* {this.state.singleComment.comments ? <button onClick={e => this.deleteComment(e, this.state.singleComment.id)} >Delete Comment</button> : null} */}
             
-
+            <CommentSection getItem={this.props.getItem} item={this.props.posts} commentItem={this.state.commentItem}  
+            isUpdating={this.state.isUpdating}/>
         </div>
     )
     }

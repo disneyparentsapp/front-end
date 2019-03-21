@@ -49,6 +49,21 @@ class AddCard extends React.Component {
         });
       };
         
+      //==============================================================
+
+      
+      // populateForm = (e, id) => {
+      //   e.preventDefault();
+      //   this.setState({
+      //     item: this.state.items.find(item => item.id === id),
+      //     isUpdating: true
+      //   });
+      //   this.props.history.push('/form');
+      // };
+
+
+
+
 
     render() {
       return (
