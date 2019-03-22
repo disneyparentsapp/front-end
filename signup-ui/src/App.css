@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   length: 3000px;
+  
 }
 
 .App-logo {
@@ -171,8 +172,8 @@ COLOR: grey;
   height: 60px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid grey ;
-  background-color: #FFFEF0;
+  border: 1px solid lightgrey ;
+  background-color: #cfbae1;
   align-items: center;
   border-radius: 5px;
 }
@@ -193,7 +194,7 @@ COLOR: grey;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #c1e0f7;
+  background-color: #E0FEFF;
   width: 100%;
 }
 
@@ -220,11 +221,12 @@ COLOR: grey;
 .SinglePost {
   display: flex;
   flex-direction: column;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   border-radius: 25px;
   width: 900px;
   margin-bottom: 20px;
   align-items: center;
+  background-color: #cfbae1;
 }
 
 .SinglePost p {
@@ -266,11 +268,69 @@ COLOR: grey;
   align-items: center;
 }
 
+i {cursor: pointer;}
+
 /* ===================================================== */
 
 .DELETE1 {
   width: 500px;
-  border: 1px solid lightgrey;
+  border: 1px solid #c59fc9;
   padding: 5px;
   border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #c59fc9;
 }
+
+.DELETE1:hover {
+  background-color: #BA93C1;
+}
+
+.FORM1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.COMMENT2 {
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.BUTTON3 {
+  padding: 4px 20px;
+  background-color: #c59fc9;
+  border: 1px solid #c59fc9;
+  border-radius: 5px;
+}
+
+/* =================== ADDFORM ================ */
+
+.PageForm {
+display: flex;
+justify-content: center;
+margin-top: 200px;
+}
+
+.PostForm {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+  background-color: #cfbae1;
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.INPUTS1 {
+  margin: 10px 0;
+  height: 30px;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #cfbae1;
+}
+
+.PageForm h2 {
+  text-align: center;
+}
+
