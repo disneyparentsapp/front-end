@@ -1,20 +1,16 @@
 import React from 'react'
 import axios from 'axios'
 
-
 class CommentSection extends React.Component {
     constructor(props) {
         super(props);
     this.state = {
-    commentItem: {
-        comment: '',
-        name: '',
-        post_id: this.props.item.id }
+            name: '',
+            comment: '',
+            post_id: this.props.item.id 
         }}
     
-        changeHandler = event => {
-            this.setState({ [event.target.name]: event.target.value });
-          }
+  
 
 
         //   componentDidMount() {
@@ -28,13 +24,12 @@ class CommentSection extends React.Component {
     //===========================================
           addComment = (e) => {
             e.preventDefault();
+            
             axios
-              .post('https://disney-parents.herokuapp.com/comments', this.state.commentItem)
+              .post('https://disney-parents.herokuapp.com/comments', {name: this.state.name ,comment: this.state.comment, post_id: this.state.post_id})
               .then(res => {
-                this.setState({
-                  postData: res.data
-                });
-                
+                console.log(res)
+                this.props.getItem()
               })
               .catch(err => {
                 console.log(err);
@@ -46,23 +41,37 @@ class CommentSection extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
       }
 
+//======================================================================
+
+
+    //   populateForm = (e, id) => {
+    //     e.preventDefault();
+    //     const edits = {name: this.state.name ,comment: this.state.comment, post_id: this.state.post_id}
+
+    //     this.setState({ this.state.items.find })
+    //   }
+
+    
 
     render() {
+        
     return (
         <form onSubmit={this.addComment}>
-            <input 
-            placeholder="Add a comment..."
-            value={this.state.comment}
-            onChange={this.changeHandler}
-            name="comment"
-            />
+
             <input 
             placeholder="Add a name..."
             value={this.state.name}
             onChange={this.changeHandler}
             name="name"
             />
-            <button>Done</button>
+            <input 
+            placeholder="Add a comment..."
+            value={this.state.comment}
+            onChange={this.changeHandler}
+            name="comment"
+            />
+            
+            <button>Done</button> 
         </form>
     )
 }

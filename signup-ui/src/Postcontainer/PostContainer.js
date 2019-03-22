@@ -8,16 +8,16 @@ const PostContainer = (props) => {
     
 
     return (
-        <div>
+        <div >
             {props.postData.map((item) => {
                 return (
-                    <div>
-                        <Posts posts={item} />
+                    <div className="SinglePost">
+                        <Posts getItem={props.getItem} posts={item} />
                         
-                        <button onClick={e => props.deleteCard(e, item.id)}> Delete </button>
-                        <button> Edit </button>
+                        <button className="DELETE1" onClick={e => props.deleteCard(e, item.id)}> Delete Post</button>
+                        
 
-                        <CommentSection item={item}/>
+                        
                     </div>
                 )
             })}

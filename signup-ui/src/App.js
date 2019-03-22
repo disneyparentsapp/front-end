@@ -26,13 +26,9 @@ class App extends Component {
       this.getItem()
     }
 
-
-
-    
-
-
-    
-
+    changeHandler = event => {
+      this.setState({ [event.target.name]: event.target.value });
+    }
 
     addItem = (e, item) => {
       e.preventDefault();
@@ -50,6 +46,8 @@ class App extends Component {
         });
     };
   
+
+
     getItem = () => {
       axios
       .get(`https://disney-parents.herokuapp.com/posts/`, {headers: {authorization: localStorage.getItem('jwt')}})
@@ -65,15 +63,27 @@ class App extends Component {
 
     }
 
+
+    searchHandler = e => {
+      this.changeHandler(e)
+      this.setState((prevState) => {
+        const filteredPostArray = prevState.postData.filter(post => post.location.includes(prevState.searchInput))
+        return {filteredPosts: filteredPostArray }
+      })
+    }
+
+
+
   render() {
+    console.log(this.state.postData)
     return (
       <div className="App">
       
       
       <Switch><Route exact path="/" component={Register} exact/></Switch>
-      <Switch><Route exact path="/login" component={Login} exact/></Switch>
-      <Route exact path="/home" component={props => <Loggedin {...props}  getItem={this.getItem}  postData={this.state.postData} searchInput={this.state.searchInput} filteredPosts={this.state.filteredPosts}/>} exact/>
-      <Route exact path="/form" render={props => (<AddCard {...props} addItem={this.addItem} />)} exact/>
+      <Switch><Route path="/login" component={Login} exact/></Switch>
+      <Route path="/home" component={props => <Loggedin {...props}  searchHandler={this.searchHandler}  getItem={this.getItem}  postData={this.state.postData} searchInput={this.state.searchInput} filteredPosts={this.state.filteredPosts}/>} />
+      <Route path="/form" render={props => (<AddCard getItem={this.getItem} {...props} addItem={this.addItem} />)} exact/>
       </div>
       
     );

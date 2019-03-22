@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,6 +37,24 @@
   }
 }
 
+html {
+  
+  
+}
+
+.App {
+  height: 100%;
+  
+}
+
+.disneyIMG {
+  filter: blur(8px);
+  bottom: 0px;
+  position: absolute;
+}
+
+
+
 .regcontainer {
 border: 1px solid grey;
 width: 350px;
@@ -44,12 +62,69 @@ height: 400px;
 border-radius: 25px;
 }
 
+.signBTN {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: white;
+}
+
+
+.signBTN:hover {
+background-color: #D6D6D6 ;
+}
+
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.DisneyLogo {
+  width: 200px;
+}
+
+
+.loginPage input {
+  border: 1px solid lightgrey;
+}
+
+.loginPage p, a {
+  font-family: courier;
+  font-weight: bold;
+}
 
 .signin {
+  box-sizing: border-box;
   display: flex;
-  width: 350px; 
+  margin-top: 100px;
   justify-content: center;
+  border: 1px solid lightgrey;
+  border-radius: 40px;
+  align-items: baseline;
+  width: 200px;
+  margin-bottom: 20px;
+  background-color: #FFFEF0;
+  z-index: 5;
+  position: absolute;
 }
+
+.signin a {
+  padding: 10px;
+  margin: 0px;
+  
+  text-decoration: none;
+  color: black;
+  
+}
+
+
+.signin a:hover {
+COLOR: grey;
+}
+
 
 .mickey {
   display: flex;
@@ -59,4 +134,143 @@ border-radius: 25px;
   width: 350px;
   height: 400px;
   margin-right: 10px;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  padding: 50px 65px; 
+  background-color: #FFFEF0;
+  z-index: 5;
+  position: absolute;
+  top: 195px;
+}
+
+.loginContainer h2 {
+  margin: 10px 0px;
+  text-align: center;
+}
+
+.loginContainer p {
+  font-size: 1.2rem;
+  margin: 10px 0px;
+}
+
+.loginContainer input {
+  text-align: center;
+  height: 30px;
+}
+
+/* =====================SEARCH BAR========================= */
+
+.searchBar {
+  margin: 10px;
+  width: 1000px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid grey ;
+  background-color: #FFFEF0;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.searchBar input {
+  height: 30px;
+  width: 350px;
+  text-align: center;
+}
+
+.DisneyLogo2 {
+  width: 110px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #c1e0f7;
+  width: 100%;
+}
+
+.PLUS {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  width: 380px;
+  justify-content: space-between;
+}
+
+.searchInput input {
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
+/* ========================= SINGLE POSTS ============================= */
+
+
+.SinglePost {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 25px;
+  width: 900px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.SinglePost p {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.time {
+  border-bottom: 1px dotted grey;
+  padding-bottom: 20px;
+}
+
+.eachCommentname {
+  display: flex;
+  width: 800px;
+}
+
+.eachComment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.EDITS {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.INPUT3 {
+  width: 700px;
+  height: 30px;
+  font-size: 1.1rem;
+}
+
+.COLUMN1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===================================================== */
+
+.DELETE1 {
+  width: 500px;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  border-radius: 5px;
 }
