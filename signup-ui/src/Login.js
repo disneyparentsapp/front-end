@@ -32,17 +32,20 @@ class Login extends React.Component {
 
     render() {
         return(
-            <div>
-
+            <div className="loginPage">
+                <img className="disneyIMG"src='https://wallpaperplay.com/walls/full/b/a/7/144244.jpg'/>
                 
       <div className="signin">
-      <Link to='/login' >SIGN IN</Link><p> or </p><Link to='/' >REGISTER</Link>
+      <Link to='/login' >SIGN IN</Link><Link to='/' >REGISTER</Link>
       </div>
+                
 
+                <div className="loginContainer">
       
-      <h1>Disney Parents</h1>
+        <img className="DisneyLogo" src='https://voxdjs.com/wp-content/uploads/2018/08/disney-logo.png'/>
 
-                <p>Login</p>
+                
+                <h2>Login</h2>
 
                 <p>Username:</p>
                 
@@ -52,17 +55,22 @@ class Login extends React.Component {
                 onChange={this.handleChanges}
                 name="username"
                 />
+
+
                 <p>Password:</p>
                 <input 
-                type="text"
+                type="password"
                 value={this.state.password}
                 onChange={this.handleChanges}
                 name="password"
                 />
-                <button onClick={this.signIn}> Sign in </button>
-
+                <button className="signBTN"  onClick={this.signIn}> Sign in </button>
                 
+                <Link to='/' >Dont have an account?</Link>
+                </div>
 
+
+            
             </div>
         )
     }

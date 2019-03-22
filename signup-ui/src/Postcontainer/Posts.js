@@ -115,14 +115,26 @@ class Posts extends React.Component {
 
          return this.state.comments.map(item => {
             return(
-            
-            <div>
-            <p>{name}</p>
+            <div className="COLUMN1">
+
+                <div className="eachComment">
+            <div className="eachCommentname">
+            <p><strong>{`${name}:`}</strong></p>
             <p>{item.comment}</p>
-            <button onClick={e => this.deleteComment(e, item.id)} >Delete Comment</button>
-            <button onClick={e => this.populateForm(e, item.id)} >Edit Comment</button>
-            {this.state.isUpdating ? <button onClick={(e) => this.updateItem(e, item.id)} >UPDATE</button> : null}
-            {this.state.isUpdating ? <input name="commentItem" onChange={this.changeHandler} value={this.state.commentItem.comment}/> : null}
+                </div>
+
+                <div className="EDITS">
+            <i class="fas fa-trash fa-2x" onClick={e => this.deleteComment(e, item.id)} ></i>
+            {!this.state.isUpdating ? <i class="far fa-edit fa-2x" onClick={e => this.populateForm(e, item.id)} ></i> : null}
+            {this.state.isUpdating ? <i class="fas fa-edit fa-2x" onClick={(e) => this.updateItem(e, item.id)} ></i> : null}
+                </div>
+
+                </div>
+
+            {this.state.isUpdating ? <input className="INPUT3" name="commentItem" onChange={this.changeHandler} value={this.state.commentItem.comment}/> : null} 
+                
+
+            
             </div>
             )
          })
@@ -149,10 +161,11 @@ class Posts extends React.Component {
     return (
         <div>
 
-            <p>{` Username: ${this.state.singleComment.name}`}</p>
-            <p>{` Location: ${this.state.singleComment.location}`}</p>
-            <p>{` Number of kids: ${this.state.singleComment.kids}`}</p>
-            <p>{` Time: ${this.state.singleComment.timestamp}`}</p>
+            <p><strong>{` Username: `} </strong> {`${this.state.singleComment.name}`}</p>
+            <p><strong>{` Location: `} </strong> {`${this.state.singleComment.location}`}</p>
+            <p><strong>{` Number of kids:`} </strong> {`${this.state.singleComment.kids}`}</p>
+            <p className="time"><strong>{` Time: `} </strong> {` ${this.state.singleComment.timestamp}`}</p>
+            {/* <p className="time"> <strong>Comments:</strong></p> */}
             {this.commentLoop()}
             
             <CommentSection getItem={this.props.getItem} item={this.props.posts} commentItem={this.state.commentItem}  

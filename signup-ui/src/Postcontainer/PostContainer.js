@@ -8,13 +8,13 @@ const PostContainer = (props) => {
     
 
     return (
-        <div>
+        <div >
             {props.postData.map((item) => {
                 return (
-                    <div>
+                    <div className="SinglePost">
                         <Posts getItem={props.getItem} posts={item} />
                         
-                        <button onClick={e => props.deleteCard(e, item.id)}> Delete </button>
+                        <button className="DELETE1" onClick={e => props.deleteCard(e, item.id)}> Delete Post</button>
                         
 
                         

@@ -29,36 +29,50 @@ class Register extends React.Component {
 
     render() {
         return(
-            <div className='formcontainer'>
+            <div className="loginPage">
 
                 {/* <Link to='/login' >SIGN IN</Link><Link to='/' >REGISTER</Link> */}
             
-      <div className="signin">
-      <Link to='/login' >SIGN IN</Link><p> or </p><Link to='/' >REGISTER</Link>
+                <img className="disneyIMG"src='https://wallpaperplay.com/walls/full/b/a/7/144244.jpg'/>
+
+                <div className="signin">
+      <Link to='/login' >SIGN IN</Link><Link to='/' >REGISTER</Link>
       </div>
 
+
+      <div className="loginContainer">
       
-      <h1>Disney Parents</h1>
+      <img className="DisneyLogo" src='https://voxdjs.com/wp-content/uploads/2018/08/disney-logo.png'/>
 
-                <p>Register</p>
+                <h2>Register</h2>
 
-                <p>Username:</p>
+                <p>Create Username:</p>
                 
                 <input 
+                placeholder="Username.."
                 type="text"
                 value={this.state.username}
                 onChange={this.handleChanges}
                 name='username'
                 />
-                <p>Password:</p>
+                <p>Create Password:</p>
                 <input 
-                type="text"
+                placeholder="Password.."
+                type="password"
                 value={this.state.password}
                 onChange={this.handleChanges}
                 name='password'
                 />
-                <button onClick={this.signIn}> Sign in </button>
+                
+                <p>Email:</p>
+                <input 
+                placeholder="Email.."
+                />
+                
+                <button className="signBTN" onClick={this.signIn}> Register </button>
 
+                <Link to='/login' >Already have an account?</Link>
+            </div>
             </div>
         )
     }

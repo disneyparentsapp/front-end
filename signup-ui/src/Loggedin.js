@@ -61,12 +61,10 @@ class Loggedin extends Component {
   <div className="container">
         
         <Route exact path="/form" component={AddCard} exact/>
-      <SearchBar searchInput={this.props.searchInput} searchHandler={this.props.searchHandler}/>
+      <SearchBar forms={this.forms} searchInput={this.props.searchInput} searchHandler={this.props.searchHandler}/>
       
-      <button
-      onClick={this.forms}
-      > Create </button>
-
+      
+  
 
       <PostContainer getItem={this.props.getItem} deleteCard={this.deleteCard} dummyData={this.props.postData}
       postData={this.props.filteredPosts.length > 0 ? this.props.filteredPosts : this.props.postData}
