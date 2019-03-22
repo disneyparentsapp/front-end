@@ -67,10 +67,14 @@ class AddCard extends React.Component {
 
     render() {
       return (
-        <div>
+        <div className="PageForm" >
         
-        <form onSubmit={this.handleSubmit}>
+        <form className="PostForm" onSubmit={this.handleSubmit}>
+
+        <h2> Add a post </h2>
+
         <input 
+        className="INPUTS1"
         type="text"
         placeholder="Name"
         value={this.state.item.name}
@@ -78,7 +82,7 @@ class AddCard extends React.Component {
         name="name"
         />
 
-        <input 
+        <input className="INPUTS1"
         type="text"
         placeholder="Location"
         value={this.state.item.location}
@@ -86,15 +90,18 @@ class AddCard extends React.Component {
         name="location"
         />
 
-        <input 
+        <input className="INPUTS1"
         type="number"
         placeholder="# of kids"
         value={this.state.item.kids}
         onChange={this.handleKidsChanges}
         name="kids"
         />
-        <button>Submit</button>
+        <button className="INPUTS1" >Submit</button>
         </form>
+
+
+
         </div>
         
         

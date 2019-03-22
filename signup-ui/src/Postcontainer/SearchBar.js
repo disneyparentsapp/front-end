@@ -19,7 +19,7 @@ return (
     </div>
 
 
-    <div className="PLUS">
+    <div onClick={props.forms} className="PLUS">
     <i class="far fa-plus-square fa-3x"></i>
     </div>
 
